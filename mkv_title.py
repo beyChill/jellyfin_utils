@@ -2,9 +2,12 @@ import os
 import subprocess
 from collections.abc import Iterable
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv()
 
 PROCESSING_DIR = [
-    Path("/mnt/alpha/_jellyfin/catalog"),
+    Path(os.environ['PROCESSING_DIR']),
 ]
 
 MKV_FILES = "*.mkv"
