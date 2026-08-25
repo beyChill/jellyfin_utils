@@ -1,0 +1,1 @@
+```sudo chmod -R +s /path/to/your/media```
