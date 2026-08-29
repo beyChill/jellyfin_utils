@@ -1,4 +1,5 @@
 import os
+import shutil
 import subprocess
 from collections.abc import Iterable
 from pathlib import Path
@@ -74,7 +75,7 @@ def iter_media_paths(directories: Iterable[Path]) -> Iterable[Path]:
 def normalize_path(path: Path) -> None:
     mode = DIR_PERMISSION if path.is_dir() else FILE_PERMISSION
     path.chmod(mode)
-    os.chown(path, JELLYFIN_UID, JELLYFIN_GID)
+    shutil.chown(path, user=JELLYFIN_UID, group=JELLYFIN_GID)
 
 
 def normalize_permissions(directories: Iterable[Path]) -> None:
